@@ -1,3 +1,25 @@
+// First, the code is importing various modules from the @angular/core and @angular/platform-browser libraries. 
+// These modules provide APIs and other functionalities for use in the application.
+
+// The AppRoutingModule helps define the different routes that will be available 
+// in the application (for example, different pages or views that are available to the user).
+
+// The AppComponent, HomeComponent, BestSellerComponent, FullComponent, AppHeaderComponent, AppSidebarComponent, 
+// and SignupComponent are all components that have been created as classes and are used in the application.
+
+// The FormsModule and ReactiveFormsModule help provide form validations 
+// and other features related to interacting with forms.
+
+// The MaterialModule allows access to any material design components made available by Angular.
+
+// The FlexLayoutModule helps with creating responsive layouts, 
+// allowing for the UI to better adapt to different devices or screen resolutions.
+
+// The SharedModule provides a way to share common components throughout the Angular application.
+
+// The HttpClientModule provides a way to communicate with a server 
+// from within an Angular application (such as making HTTP requests).
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -14,6 +36,27 @@ import { FullComponent } from './layouts/full/full.component';
 import { AppHeaderComponent } from './layouts/full/header/header.component';
 import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SignupComponent } from './signup/signup.component';
+import { NgxUiLoaderConfig, NgxUiLoaderModule, SPINNER } from 'ngx-ui-loader';
+
+// The NgxUiLoaderModule is a module for loading animations. 
+// The configuration options set in the ngxUiLoaderConfig object were used to configure the appearance 
+// and functionality of such animations.
+
+const ngxUiLoaderConfig: NgxUiLoaderConfig ={
+  text:"Loading...",
+  textColor: "#FFFFFF",
+  textPosition:"center-center",
+  bgsColor:"#7b1fa2",
+  fgsColor:"#7b1fa2",
+  fgsType:SPINNER.squareJellyBox,
+  fgsSize:100,
+  hasProgressBar:false
+}
+
+// Finally, the code declares a @NgModule decorator, which is used to create a module, 
+// specifying which components, services, etc. can be used in that module. 
+// This module is then bootstrapped via the AppComponent, which is the root component of the application.
 
 @NgModule({
   declarations: [	
@@ -22,7 +65,8 @@ import { HttpClientModule } from '@angular/common/http';
     BestSellerComponent,
     FullComponent,
     AppHeaderComponent,
-    AppSidebarComponent
+    AppSidebarComponent,
+    SignupComponent
    ],
   imports: [
     BrowserModule,
@@ -33,7 +77,8 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     FlexLayoutModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

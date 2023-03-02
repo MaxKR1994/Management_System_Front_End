@@ -1,0 +1,20 @@
+
+// .mat-toollbar defines the margin, width and margin-bottom of the element.
+
+.mat-toollbar{
+    margin: 24px;
+    width: auto;
+    margin-bottom: 10px;
+}
+
+//.mat-form-field defines a padding for the element.
+
+mat-form-field{
+    padding: 5px;
+}
+
+//mat-hint defines the color of the text for the element.
+
+mat-hint{
+    color: red;
+}

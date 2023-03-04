@@ -30,4 +30,13 @@ export class UserService {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
     });
   }
+
+  // This function is used to login user with the given data
+  login(data: any) {
+    return this.httpClient.post(this.url + '/user/login', data, {
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+    });
+  }
+
+
 }

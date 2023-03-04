@@ -39,6 +39,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { NgxUiLoaderConfig, NgxUiLoaderModule, SPINNER } from 'ngx-ui-loader';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { LoginComponent } from './login/login.component';
 
 // The NgxUiLoaderModule is a module for loading animations. 
 // The configuration options set in the ngxUiLoaderConfig object were used to configure the appearance 
@@ -68,7 +69,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig ={
     AppHeaderComponent,
     AppSidebarComponent,
     SignupComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    LoginComponent
    ],
   imports: [
     BrowserModule,

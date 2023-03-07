@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.userServices.checkToken().subscribe((response:any)=>{
-      this.router.navigate(['/cafe/dashboard']);
+      this.router.navigate(['/store/dashboard']);
     },(error:any)=>{
       console.log(error);
     })

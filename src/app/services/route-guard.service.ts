@@ -42,7 +42,7 @@ export class RouteGuardService {
         return true;
       }
       this.snackBarService.openSnackBar(GlobalConstants.unauthorized,GlobalConstants.error);
-      this.router.navigate(['/cafe/dashboard']);
+      this.router.navigate(['/store/dashboard']);
       return false
     }
     else{

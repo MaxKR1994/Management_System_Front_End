@@ -1,0 +1,9 @@
+<mat-nav-list appAccordion>
+    <mat-list-item appAccordionLink *ngFor="let productOffering of productOffering.getProductOffering() " routerLink="selected" group = "{{productOffering.state}}">
+        <a class="" appAccordingToggle [routerLink]="['/store/',productOffering.state]" 
+        *ngIf="productOffering.type === 'link' && (productOffering.role === '' || productOffering.role === userRole)">
+        <mat-icon>{{productOffering.icon}}</mat-icon>
+        <span>{{productOffering.name}}</span>
+    </a>
+    </mat-list-item>
+</mat-nav-list>

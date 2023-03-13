@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
 import { AuthService } from './auth.service';
 import { SnackbarService } from './snackbar.service';
 import jwt_decode from "jwt-decode";
@@ -8,7 +8,7 @@ import { GlobalConstants } from '../shared/global-contants';
 @Injectable({
   providedIn: 'root'
 })
-export class RouteGuardService {
+export class RouteGuardService implements CanActivate {
 
   constructor(public auth:AuthService,
     public router:Router,
@@ -32,13 +32,13 @@ export class RouteGuardService {
     let expectedRole = '';
 
     for(let i = 0;i<expectedRoleArray.length;i++){
-      if(expectedRoleArray[i] == tokenPayload.role){
+      if(expectedRoleArray[i] === tokenPayload.role){
         expectedRole = tokenPayload.role;
       }
     }
 
-    if(tokenPayload.role == 'user' || tokenPayload.role == 'admin'){
-      if(this.auth.isAuthenticated() && tokenPayload.role == expectedRole){
+    if(tokenPayload.role === 'user' || tokenPayload.role === 'admin'){
+      if(this.auth.isAuthenticated() && tokenPayload.role === expectedRole){
         return true;
       }
       this.snackBarService.openSnackBar(GlobalConstants.unauthorized,GlobalConstants.error);
